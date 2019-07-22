@@ -1,0 +1,19 @@
+#Create a program to calculate a specific string
+#Enter English characters and calculate Bab as 1 point and baby as -2 points out of the string
+#The base score is 50 points and is calculated only once if Babbab (or Bab, or baby), and only baby if Babbaby.
+#If Bab and baby are combined like one word, baby is processed only
+
+# ex) bab is baby  => 50 + 1 - 2  => output : 49
+# babbab is baby  => 50 + 1 - 2  => output : 49
+# babbabbaby is babybababy  => 50 -2 - 2  => output : 46
+
+score = 50
+str = 'babbabbaby is babybababy '
+
+for word in str.split(' '):
+    if ('baby' in word):
+        score=score - 2
+    elif ('bab' in word):
+        score = score + 1
+
+print(score)
